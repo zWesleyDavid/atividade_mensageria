@@ -1,0 +1,52 @@
+Mensageria:
+
+O que é?
+Mensageria é um conceito que define que sistemas distribuídos possam se comunicar
+por meio de troca de mensagens(evento), sendo estas mensagens 'gerenciadas' por um
+Message Broker(servidor/módulo de mensagens). Essa troca de mensagens acontece de 
+forma assíncrona, ou seja, um não depende da resposta do outro para continuar funcionando.
+
+Na mensageria sempre teremos um Pub/Sub (publisher e subscriber), onde há dois papeis, um
+que vai publicar um evento ou mensagem e o outro que irá receber/ler essa mensagem. Ao enviar essa 
+mensagem, elas são armazenadas numa fila até serem processadas pelos consumidores, normalmente seguindo
+o padrão FIFO (First in, First out) se aplicando a RabbitMQ, BullMQ e Kafka. Em modelos de fila como Kafka
+e RabbitMQ, os consumidores podem se inscrever em tópicos, que atuam como categorias onde as mensagens são 
+publicadas. Isso permite que os dados sejam organizados e distribuídos para diferentes consumidores com base
+no tipo de informação ou evento. Partições são uma forma de dividir um tópico em partes menores, permitindo 
+que ele seja processado de maneira paralela e distribuída. Cada mensagem é armazenada em uma partição específica 
+dentro de um tópico, e o conjunto de partições de um tópico permite a escalabilidade e o balanceamento de 
+carga dos consumidores.
+
+Esse sistema, é muito utilizado para construir arquiteturas distribuídas, desacoplar serviços e permitir que as 
+comunicações sejam assíncronas.
+
+Conceito e casos de uso RabbitMQ, BullMQ e Kafka:
+
+RabbitMQ: O RabbitMQ é um sistema de mensagem que implementa o protocolo AMQP (Advanced Message Queuing Protocol),
+que foi estendido com uma arquitetura de plug-in para suportar o protocolo "Streaming Text Oriented Messaging Protocol" (STOMP), 
+o MQTT entre outros protocolos. É escrito em Erlang (linguagem de programação) e seu código fonte é publicado sob a licença pública
+Mozilla. Foi lançado inicialmente pela Rabbit Technologies em 2007.
+
+Casos de uso:
+-   Aplicações de micro serviços: Permite a comunicação assíncrona entre diferentes serviços.
+-   Processamento de tarefas em segundo plano: Tarefas que não precisam ser executadas imediatamente, como envio de e-mails ou notificações.
+-   Sistemas de filas: Distribui tarefas entre múltiplos tópicos.
+
+BullMQ: BullMQ é uma biblioteca Node.js que implementa um sistema de filas rápido e robusto criado sobre o Redis, o que ajuda a 
+resolver muitas arquiteturas de microsserviços modernas. A biblioteca foi projetada para cumprir os seguintes objetivos:
+
+Casos de uso:
+-   Semântica de fila exatamente uma vez, ou seja, tenta entregar cada mensagem exatamente uma vez, mas entregará pelo menos uma vez no pior
+    cenário.
+-   Fácil de escalar horizontalmente. Adicione mais trabalhadores para processar trabalhos em paralelo.
+-   Consistente.
+-   Alto desempenho. Tenta obter o maior rendimento possível do Redis combinando scripts .lua eficientes e pipelining.
+
+Kafka: O Kafka é um sistema de mensagens do tipo Publish/Subscribe, que se caracteriza pelo envio de dados por um remetente sem direcionar
+para um receptor. O remetente classifica a mensagem de alguma forma e o receptor “assina” para receber essas mensagens classificadas.
+
+Casos de uso:
+-   Processamento de dados em tempo real: Ideal para aplicações que precisam processar grandes volumes de dados em tempo real, como análise
+    de logs e métricas.
+-   Sistemas de eventos: Permite construir sistemas baseados em eventos, onde os componentes se comunicam através de eventos.
+-   Integração de sistemas: Facilita a integração de diferentes sistemas heterogêneos.

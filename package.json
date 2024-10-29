@@ -1,0 +1,22 @@
+{
+  "name": "mensageria",
+  "version": "1.0.0",
+  "description": "Atividade mensageria",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zWesleyDavid/atividade_mensageria.git"
+  },
+  "author": "Wesley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zWesleyDavid/atividade_mensageria/issues"
+  },
+  "homepage": "https://github.com/zWesleyDavid/atividade_mensageria#readme",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
