@@ -31,12 +31,12 @@ Certifique-se de utilizar insomnia ou postman, o arquivo de configuração se en
 
 #### Envia a mensagem
 
-```http
+```
   POST /mensagens/enviar
 ```
 
 #### Recebe uma mensagem
 
-```http
+```
   GET /mensagens/receber
 ```
